@@ -1,0 +1,14 @@
+# Copyright (c) 2019 NVIDIA Corporation.  All rights reserved.
+.cipd
+.gclient
+.gclient_entries
+.dir-locals.el
+*~
+/build
+/buildtools
+/out
+/third_party
+/tools
+/testing
+#todo: should be removed?
+/base

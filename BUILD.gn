@@ -1,0 +1,10 @@
+# Copyright (c) 2019 NVIDIA Corporation.  All rights reserved.
+
+import("//third_party/webrtc/webrtc.gni")
+
+group("default") {
+  deps = [
+    "//video_service:video_service"
+  ]
+}
+

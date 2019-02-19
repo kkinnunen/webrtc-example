@@ -1,0 +1,74 @@
+# Copyright (c) 2019 NVIDIA Corporation.  All rights reserved.
+
+executable("video_service") {
+  sources = [
+    "flag_defs.h",
+    "main.cc",
+    "client/conductor.cc",
+    "client/conductor.h",
+    "client/defaults.cc",
+    "client/defaults.h",
+    "client/peer_connection_client.cc",
+    "client/peer_connection_client.h",
+    "client/main_client.cc",
+    "client/main_wnd.cc",
+    "client/main_wnd.h",
+    "server/data_socket.cc",
+    "server/data_socket.h",
+    "server/main_server.cc",
+    "server/peer_channel.cc",
+    "server/peer_channel.h",
+    "server/utils.cc",
+    "server/utils.h",
+  ]
+  deps = [
+    "//build/win:default_exe_manifest",
+    "//third_party/webrtc:webrtc",
+    "//third_party/abseil-cpp/absl/memory",
+    "//third_party/abseil-cpp/absl/types:optional",
+  ]
+  if (false) {
+    # Instead of conceptually depending on  "webrtc the library"
+    # we could depend on the "specific parts we need from the webrtc codebase".
+    # This latter should be breach of API contract.
+    deps = [
+      "//build/win:default_exe_manifest",
+      "//third_party/abseil-cpp/absl/memory",
+      "//third_party/abseil-cpp/absl/types:optional",
+      "//third_party/libyuv",
+      "//third_party/webrtc/api/audio:audio_mixer_api",
+      "//third_party/webrtc/api/audio_codecs:audio_codecs_api",
+      "//third_party/webrtc/api/audio_codecs:builtin_audio_decoder_factory",
+      "//third_party/webrtc/api/audio_codecs:builtin_audio_encoder_factory",
+      "//third_party/webrtc/api/video:video_frame",
+      "//third_party/webrtc/api/video:video_frame_i420",
+      "//third_party/webrtc/api/video_codecs:builtin_video_decoder_factory",
+      "//third_party/webrtc/api/video_codecs:builtin_video_encoder_factory",
+      "//third_party/webrtc/api/video_codecs:video_codecs_api",
+      "//third_party/webrtc/api:audio_options_api",
+      "//third_party/webrtc/api:create_peerconnection_factory",
+      "//third_party/webrtc/api:libjingle_peerconnection_api",
+      "//third_party/webrtc/api:libjingle_peerconnection_api",
+      "//third_party/webrtc/api:scoped_refptr",
+      "//third_party/webrtc/media:rtc_audio_video",
+      "//third_party/webrtc/media:rtc_media_base",
+      "//third_party/webrtc/media:rtc_media_base",
+      "//third_party/webrtc/modules/audio_device:audio_device",
+      "//third_party/webrtc/modules/audio_processing:api",
+      "//third_party/webrtc/modules/audio_processing:audio_processing",
+      "//third_party/webrtc/modules/video_capture:video_capture_module",
+      "//third_party/webrtc/p2p:rtc_p2p",
+      "//third_party/webrtc/pc:libjingle_peerconnection",
+      "//third_party/webrtc/pc:peerconnection",
+      "//third_party/webrtc/rtc_base/third_party/sigslot",
+      "//third_party/webrtc/rtc_base:checks",
+      "//third_party/webrtc/rtc_base:rtc_base",
+      "//third_party/webrtc/rtc_base:rtc_base_approved",
+      "//third_party/webrtc/rtc_base:rtc_base_approved",
+      "//third_party/webrtc/rtc_base:rtc_json",
+      # TODO: WebRTC bug: rtc_base/flags.h is public api, but needs a non-compiled
+      # in private implementation command_line_parser.
+      "//third_party/webrtc/rtc_tools:command_line_parser",
+    ]
+  }
+}

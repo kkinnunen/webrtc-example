@@ -1,0 +1,6 @@
+# Copyright (c) 2019 NVIDIA Corporation.  All rights reserved.
+
+build_with_chromium = false
+build_with_any_gn = true
+ignore_elf32_limitations = true
+linux_use_bundled_binutils_override = true
